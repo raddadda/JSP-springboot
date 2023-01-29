@@ -7,6 +7,7 @@
     <form role="form" action="/order" method="post">
         <div class="form-group">
             <label for="member">주문회원</label>
+            <!--select로 선택할 수 있게 해주는 , each로 멤버의 id와 name을 가져온다-->
             <select name="memberId" id="member" class="form-control">
                 <option value="">회원선택</option> <option th:each="member : ${members}"
                                                        th:value="${member.id}"

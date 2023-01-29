@@ -46,8 +46,14 @@ public class MemberService {
 
     @Transactional
     public void update(Long id,String name){
+        //void, member 의 차이점??
         Member member = memberRepository.findOne(id);
         member.setName(name);
     }
 
 }
+
+
+
+
+

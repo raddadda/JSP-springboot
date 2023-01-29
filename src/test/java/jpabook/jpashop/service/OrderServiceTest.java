@@ -6,7 +6,7 @@ import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
-import jpabook.jpashop.exception.NotEnoughStockException;
+import jpabook.jpashop.controller.exception.NotEnoughStockException;
 import jpabook.jpashop.repository.OrderRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -84,6 +84,8 @@ public class OrderServiceTest{
     }
     @Test
     public void 주문취소() throws Exception{
+
+        //테스트에서 getter를 안쓰는 이유는?
         //given
     Member member = createMember();
     Book item = createBook("시골 JPA",10000,10);

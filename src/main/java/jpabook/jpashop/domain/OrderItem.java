@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jpabook.jpashop.domain.item.Item;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class OrderItem {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="item_id")
     private Item item;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
@@ -27,8 +29,9 @@ public class OrderItem {
     private int orderPrice; // 주문 가
     private int count; //주문 수량
 
-    //생성 메서드//
 
+    //생성 메서드//
+//this로 받는것과의 차이
     public static OrderItem createOrderItem(Item item, int orderPrice,int count){
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(item);

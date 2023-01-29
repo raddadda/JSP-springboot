@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -25,10 +26,13 @@ public class Order {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    //lazy는 지연로딩, 즉 DB에서 가져오지 않는. 오더의 데이터만 가져오는것
     @JoinColumn(name = "member_id")
     private Member member;
 
+
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    //일대다는 기본이 lazy이다
     //특정 엔티티에 대해 특정한 작업을 수행하면 관련된 엔티티에도 동일한 작업을 수행하는것
     //order
     private List<OrderItem> orderItems = new ArrayList<>();

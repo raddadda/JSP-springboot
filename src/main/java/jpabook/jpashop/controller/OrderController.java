@@ -37,6 +37,7 @@ public class OrderController {
 
 
     @PostMapping("/order")
+    //requestparam을 통해 orderForm의 멤버,아이템,카운트값을 가져오는것
     public String order(@RequestParam("memberId") Long memberId,
                         @RequestParam("itemId") Long itemId,
                         @RequestParam("count") int count){
@@ -46,6 +47,7 @@ public class OrderController {
     }
 
     @GetMapping("/orders")
+    //modelattribute를 통해 따로 model.addattri~과정을 하지 않아도 된다.
     public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model){
         List<Order> orders = orderService.findOrders(orderSearch);
         model.addAttribute("orders", orders);

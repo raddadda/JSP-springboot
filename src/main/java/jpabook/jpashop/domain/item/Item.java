@@ -2,7 +2,7 @@ package jpabook.jpashop.domain.item;
 
 
 import jpabook.jpashop.domain.Category;
-import jpabook.jpashop.exception.NotEnoughStockException;
+import jpabook.jpashop.controller.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,7 +32,6 @@ public abstract class Item {
     //stock(재고) 증가
     public void addStock(int quantity) {
         this.stockQuantity += quantity;
-
     }
 
     //재고 감소

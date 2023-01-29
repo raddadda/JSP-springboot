@@ -61,17 +61,19 @@ public class ItemController {
     }
     @PostMapping("items/{itemId}/edit")
     public String updateItem(@PathVariable Long itemId,@ModelAttribute("form") BookForm form){
+     //book은 준영속 엔티티 이다 따라서 jpa가 감지할수없기때문에 수정하기 위해서는 특별한 방법을 이용해야한다.
       /*  Book book = new Book();
         book.setId(form.getId());
         book.setName(form.getName());
         book.setPrice(form.getPrice());
+        // 만약 여기에 없는 필드가 있으면 null이 되기 때문에 위험성이 있다.
         book.setStockQuantity(form.getStockQuantity());
         book.setAuthor(form.getAuthor());
         book.setIsbn(form.getIsbn());*/
 
         itemService.updateItem(itemId,form.getName(), form.getPrice(), form.getStockQuantity());
 
-
+    //아이템 리스트로 돌아간다.
         return "redirect:/items";
     }
 }

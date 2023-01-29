@@ -1,12 +1,16 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.domain.*;
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Service
@@ -16,7 +20,6 @@ public class ItemService {
     private  final ItemRepository itemRepository;
     @Transactional
     public void saveItem(Item item){
-
         itemRepository.save(item);
     }
     @Transactional
@@ -37,3 +40,5 @@ public class ItemService {
     }
 
 }
+
+

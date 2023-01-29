@@ -7,11 +7,14 @@ spring:
 
   jpa:
     hibernate:
+#none으로 하면 테이블드랍을 안하고 반복해서 데이터베이스의 데이터를 쓸 수 있다.
       ddl-auto: create
     properties:
       hibernate:
         #show_sql: true
         format_sql: true
+        default_batch_fetch_size: 100
+        #쿼리가 2이고 사이즈가 1 이면 1번씩 2번, 쿼리가 10이고 사이즈가 100이면 10번에 한번씩 사이클 총 2번
 #create는 자동으로 테이다
 logging:
   level:
