@@ -19,7 +19,8 @@ public class JpashopApplication {
 	Hibernate5Module hibernate5Module(){
 		Hibernate5Module hibernate5Module = new Hibernate5Module();
 		//hibernate5Module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING,true);
-		//위에를 하면 엔티티를 외부로 노출할 위험이 있다.
+		//위에를 하게되면 엔티티를 외부로 노출할 위험이 있다.
 		return hibernate5Module;
+
 	}
 }
